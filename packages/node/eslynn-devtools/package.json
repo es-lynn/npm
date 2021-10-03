@@ -1,0 +1,27 @@
+{
+  "name": "@es-lynn/devtools",
+  "version": "0.0.0",
+  "description": "Collection of all functions and utilities",
+  "author": "es-lynn",
+  "license": "MIT",
+  "scripts": {
+    "prepublishOnly": "tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/es-lynn/npm/issues"
+  },
+  "homepage": "https://github.com/es-lynn/npm#readme",
+  "repository": "https://github.com/es-lynn/npm",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@es-lynn/utils": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.39",
+    "aws-sdk": "^2.585.0"
+  },
+  "peerDependencies": {
+    "aws-sdk": "^2.585.0"
+  }
+}

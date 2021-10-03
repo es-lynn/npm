@@ -1,7 +1,8 @@
 {
   "packages": [
     "packages/node",
-    "packages/node/*"
+    "packages/node/eslynn-devtools",
+    "packages/node/eslynn-utils"
   ],
   "version": "0.0.0",
   "npmClient": "yarn"
