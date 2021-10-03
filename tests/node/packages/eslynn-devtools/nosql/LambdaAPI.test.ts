@@ -1,6 +1,6 @@
 import Faker from 'faker'
 
-import { matchCORS } from '../../src/aws/lambda/LambdaAPI'
+import { matchCORS } from '../../../../../packages/eslynn-devtools'
 
 describe('Match CORS', () => {
   test('*', () => {
