@@ -7,7 +7,11 @@
     "doc": "docs"
   },
   "scripts": {
-    "setup": "yarn && lerna bootstrap"
+    "setup": "yarn && lerna bootstrap",
+    "lint": "eslint . --ext .ts --ignore-pattern '/dist/*/*'",
+    "lint:fix": "eslint . --ext .ts --fix --ignore-pattern '/dist/*/*'",
+    "compile": "tsc && yarn lint",
+    "compile:fix": "tsc && yarn lint:fix"
   },
   "repository": {
     "type": "git",

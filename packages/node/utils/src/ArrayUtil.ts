@@ -32,12 +32,15 @@ function last<T>(arr: Array<T>): T {
   return arr[arr.length - 1]
 }
 
-function unique<T extends Key, K extends Key>(arr: Array<T>): T[]
+function unique<T extends Key>(arr: Array<T>): T[]
 function unique<T extends object, K extends Key>(
   arr: Array<T>,
   uniqueIdentifier: (item: T) => K
 ): T[]
-function unique<T, K extends Key>(arr: Array<T>, uniqueIdentifier?: (item: T) => K): T[] {
+function unique<T, K extends Key>(
+  arr: Array<T>,
+  uniqueIdentifier?: (item: T) => K
+): T[] {
   const map = new Map<K, T>()
   // Based on the signature, objects will always be required to pass uniqueIdentifier
   // If uniqueIdentifier is undefined, then item will always be a key
@@ -61,7 +64,10 @@ function unique<T, K extends Key>(arr: Array<T>, uniqueIdentifier?: (item: T) =>
  *     => { even: [0, 2, 4, 6, 8], odd: [1, 3, 5, 7, 9] }
  * If you want to perform map or filter, please run those functions first before grouping
  */
-function groupBy<T>(arr: Array<T>, reduceKeyFn: (it: T) => Key): Record<Key, T[]> {
+function groupBy<T>(
+  arr: Array<T>,
+  reduceKeyFn: (it: T) => Key
+): Record<Key, T[]> {
   const map: Record<Key, T[]> = {}
   arr.forEach(item => {
     const key = reduceKeyFn(item)

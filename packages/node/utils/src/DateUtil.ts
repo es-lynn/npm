@@ -1,5 +1,6 @@
-import { Str } from './StringUtil'
 import dayjs from 'dayjs'
+
+import { Str } from './StringUtil'
 
 export class Datee {
   static now(): Date {
