@@ -4,6 +4,7 @@
     "test:coverage": "jest --collectCoverage"
   },
   "devDependencies": {
+    "@types/node": "^16.10.2",
     "jest": "^27.2.4",
     "ts-jest": "^27.0.5"
   }

@@ -1,8 +1,7 @@
 {
   "name": "npm",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Monorepo for npm packages developed by @es-lynn",
   "directories": {
     "doc": "docs"
   },
@@ -13,16 +12,8 @@
     "compile": "tsc && yarn lint",
     "compile:fix": "tsc && yarn lint:fix"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/es-lynn/npm.git"
-  },
   "author": "es-lynn",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/es-lynn/npm/issues"
-  },
-  "homepage": "https://github.com/es-lynn/npm#readme",
   "dependencies": {
     "@types/node": "^16.10.2",
     "@types/jest": "^27.0.2",

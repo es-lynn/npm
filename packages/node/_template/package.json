@@ -1,17 +1,21 @@
 {
-  "name": "@es-lynn/utils",
+  "name": "",
   "version": "0.0.0",
-  "description": "Common tools used in Javascript projects",
+  "description": "",
   "author": "es-lynn",
   "license": "MIT",
+  "scripts": {
+    "prepublishOnly": "tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/es-lynn/npm/issues"
+  },
+  "homepage": "https://github.com/es-lynn/npm#readme",
   "repository": "https://github.com/es-lynn/npm",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "dayjs": "^1.8.28"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.39",
-    "@types/faker": "^4.1.12"
   }
 }
