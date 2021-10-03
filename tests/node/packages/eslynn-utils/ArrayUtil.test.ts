@@ -1,4 +1,4 @@
-import { Arr } from '../index'
+import { Arr } from '../../../../packages/eslynn-utils'
 
 describe('ArrayUtil', () => {
   test('first', async () => {

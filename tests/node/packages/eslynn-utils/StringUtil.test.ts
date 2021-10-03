@@ -1,4 +1,4 @@
-import { Str } from '../index'
+import { Str } from '../../../../packages/eslynn-utils'
 
 describe('StringUtil', () => {
   describe('is_num', () => {

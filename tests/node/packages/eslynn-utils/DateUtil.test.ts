@@ -1,4 +1,4 @@
-import { Datee, Time } from '../index'
+import { Datee, Time } from '../../../../packages/eslynn-utils'
 
 describe('DateUtil', () => {
   test('to_date', async () => {

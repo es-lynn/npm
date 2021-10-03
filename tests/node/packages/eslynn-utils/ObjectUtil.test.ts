@@ -1,4 +1,4 @@
-import { Obj } from '../index'
+import { Obj } from '../../../../packages/eslynn-utils'
 
 describe('ObjectUtil', () => {
   describe('pick', () => {

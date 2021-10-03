@@ -1,4 +1,4 @@
-import { Regex } from '../index'
+import { Regex } from '../../../../packages/eslynn-utils'
 
 describe('Regex', () => {
   describe('ISODateString', () => {

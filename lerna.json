@@ -1,6 +1,6 @@
 {
   "packages": [
-    "packages",
+    "tests/node",
     "packages/eslynn-devtools",
     "packages/eslynn-utils"
   ],

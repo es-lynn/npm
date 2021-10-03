@@ -1,4 +1,4 @@
-import { Format, Time } from '../index'
+import { Format, Time } from '../../../../packages/eslynn-utils'
 
 describe('Format', () => {
   let consoleWarn: any

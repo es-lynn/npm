@@ -1,4 +1,4 @@
-import { Datee, Time } from '../index'
+import { Datee, Time } from '../../../../packages/eslynn-utils'
 
 describe('Time', () => {
   test('until', () => {
