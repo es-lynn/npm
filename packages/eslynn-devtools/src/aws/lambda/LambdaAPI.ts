@@ -1,5 +1,9 @@
-import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from 'aws-lambda'
-import { NotImplementedErr } from '../../error/Error'
+import { NotImplementedErr } from '@es-lynn/utils'
+import {
+  APIGatewayProxyEvent,
+  APIGatewayProxyResult,
+  Context
+} from 'aws-lambda'
 
 type APIGatewayHandler = (
   event: APIGatewayProxyEvent,
@@ -13,22 +17,38 @@ export const LambdaConfig: Config = {
   whitelist: ['*']
 }
 
-export function LambdaAPI(func: (data: any) => object, config?: Config): APIGatewayHandler {
-  return async (event: APIGatewayProxyEvent, _context: Context): Promise<APIGatewayProxyResult> => {
+export function LambdaAPI(
+  func: (data: any) => object,
+  config?: Config
+): APIGatewayHandler {
+  return async (
+    event: APIGatewayProxyEvent,
+    _context: Context
+  ): Promise<APIGatewayProxyResult> => {
     try {
       const origin = event.headers['origin']
       const body = content(event)
       const result = await func(body)
       return {
         statusCode: 200,
-        headers: { 'Access-Control-Allow-Origin': matchCORS(origin, config ?? LambdaConfig) },
+        headers: {
+          'Access-Control-Allow-Origin': matchCORS(
+            origin,
+            config ?? LambdaConfig
+          )
+        },
         body: JSON.stringify(result)
       }
     } catch (e) {
       console.error('λ', e)
       return {
         statusCode: 500,
-        headers: { 'Access-Control-Allow-Origin': matchCORS(origin, config ?? LambdaConfig) },
+        headers: {
+          'Access-Control-Allow-Origin': matchCORS(
+            origin,
+            config ?? LambdaConfig
+          )
+        },
         body: JSON.stringify({
           error: { name: e.name, message: e.message }
         })
@@ -42,7 +62,7 @@ export async function TestLambdaAPI<T>(
   data: object,
   handler: APIGatewayHandler
 ): Promise<T> {
-  let a = (
+  const a = (
     await handler(
       {
         body: JSON.stringify(data),
@@ -66,7 +86,7 @@ function content(event: APIGatewayProxyEvent): object {
   }
 }
 
-export function matchCORS(origin: string, config: Config): string {
+export function matchCORS(origin: string = '', config: Config): string {
   if (config.whitelist.some(it => it === '*')) {
     return origin
   }

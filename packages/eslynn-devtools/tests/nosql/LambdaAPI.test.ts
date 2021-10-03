@@ -1,5 +1,6 @@
-import { matchCORS } from '../../src/aws/lambda/LambdaAPI'
 import Faker from 'faker'
+
+import { matchCORS } from '../../src/aws/lambda/LambdaAPI'
 
 describe('Match CORS', () => {
   test('*', () => {

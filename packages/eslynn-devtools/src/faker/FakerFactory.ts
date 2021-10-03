@@ -13,7 +13,10 @@ export class FakerFactory<T> {
     return { ...this.factory(), ...override }
   }
 
-  array(total: number, override?: Partial<T> | ((index: number) => Partial<T>)): T[] {
+  array(
+    total: number,
+    override?: Partial<T> | ((index: number) => Partial<T>)
+  ): T[] {
     const arr: T[] = []
     for (let i = 0; i < total; i++) {
       if (typeof override === 'function') {

@@ -1,20 +1,23 @@
-import { HashDatabase } from '../../src/aws/dynamodb/HashDatabase'
-import { FakerFactory } from '../../src/dummy/FakerFactory'
-import { _ } from '../../index'
+import { Rand } from '@es-lynn/utils'
 import Faker from 'faker'
 
-const DataFactory = new FakerFactory(
-  (): Data => {
-    return {
-      id: Faker.random.uuid(),
-      array: [],
-      boolean: _.rand.maybe(),
-      string: Faker.random.word(),
-      number: _.rand.num(0, 10),
-      object: { firstName: Faker.name.firstName(), lastName: Faker.name.lastName() }
-    }
+import { FakerFactory } from '../../src/faker/FakerFactory'
+import { FileSystemDatabase } from '../../src/nosql/FileSystemDatabase'
+
+const DataFactory = new FakerFactory((): Data => {
+  return {
+    id: Faker.random.uuid(),
+    array: [],
+    boolean: Rand.maybe(),
+    string: Faker.random.word(),
+    number: Rand.num(0, 10),
+    object: {
+      firstName: Faker.name.firstName(),
+      lastName: Faker.name.lastName()
+    },
+    date: Faker.date.recent()
   }
-)
+})
 type Data = {
   id: string
   boolean: boolean
@@ -25,24 +28,14 @@ type Data = {
     firstName: string
     lastName: string
   }
+  date: Date
 }
 
-describe('HashDynamoDb', () => {
-  const DB = new HashDatabase<Data>('TestDatabase')
-
-  test('Insert', async () => {
-    DB['db'] = {}
-    const data = DataFactory.new({ id: 'one' })
-    await DB.insert(data)
-    expect(Object.keys(DB['db']).length).toEqual(1)
-    expect(DB['db']['one']).not.toBeUndefined()
-    expect(DB['db']['one'].id).toEqual('one')
-    expect(DB['db']['one']).toEqual(data)
-    expect(DB['db']['two']).toBeUndefined()
-  })
+describe('FileSystemDatabase', () => {
+  const DB = new FileSystemDatabase<Data>('TestDatabase')
 
   test('Select', async () => {
-    DB['db'] = {}
+    await DB.deleteAll()
     const data = DataFactory.new({ id: 'one' })
     await expect(DB.select('one')).rejects.toThrow()
     await DB.insert(data)
@@ -54,13 +47,13 @@ describe('HashDynamoDb', () => {
   })
 
   test('Scan with 0 items', async () => {
-    DB['db'] = {}
+    await DB.deleteAll()
     const result = await DB.scan()
     expect(result.length).toEqual(0)
   })
 
   test('Insert 3 items > Scan', async () => {
-    DB['db'] = {}
+    await DB.deleteAll()
     const data = DataFactory.new({ id: 'one' })
     const data2 = DataFactory.new({ id: 'two' })
     const data3 = DataFactory.new({ id: 'three' })
@@ -75,14 +68,16 @@ describe('HashDynamoDb', () => {
   })
 
   test('Update', async () => {
-    DB['db'] = {}
+    await DB.deleteAll()
+    const date = new Date()
     await DB.insert({
       id: 'one',
       array: [],
       boolean: false,
       number: 0,
       object: { firstName: 'Mandy', lastName: 'Tan' },
-      string: 'first'
+      string: 'first',
+      date: date
     })
 
     await DB.update({
@@ -96,12 +91,14 @@ describe('HashDynamoDb', () => {
       boolean: false,
       number: 3,
       object: { firstName: 'Mandy', lastName: 'Tan' },
-      string: 'first'
+      string: 'first',
+      date: date
     })
   })
 
   describe('Delete', () => {
     beforeAll(async () => {
+      await DB.deleteAll()
       await DB.insert(DataFactory.new({ id: 'one' }))
       await DB.insert(DataFactory.new({ id: 'two' }))
       await DB.insert(DataFactory.fixture('three', { id: 'three' }))
@@ -142,6 +139,20 @@ describe('HashDynamoDb', () => {
     test('delete 3rd object, no items remaining', async () => {
       await DB.delete('three')
       expect((await DB.scan()).length).toEqual(0)
+    })
+  })
+
+  describe('Date Parsing', () => {
+    beforeAll(async () => {
+      await DB.deleteAll()
+    })
+    test('should parse ISOString as date', async () => {
+      const data = DataFactory.new({ id: 'one' })
+      await DB.insert(data)
+      const result = await DB.select('one')
+      expect(data).toEqual(result)
+      expect(result.date).toBeInstanceOf(Date)
+      expect(data.date).toStrictEqual(result.date)
     })
   })
 })

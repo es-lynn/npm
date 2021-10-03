@@ -1,6 +1,8 @@
 import { NoSQLDatabase } from './NoSQLDatabase'
 
-export class HashDatabase<T extends { id: string }> implements NoSQLDatabase<T> {
+export class HashDatabase<T extends { id: string }>
+  implements NoSQLDatabase<T>
+{
   readonly table: string
   private db: Record<string, T> = {}
 
@@ -20,7 +22,7 @@ export class HashDatabase<T extends { id: string }> implements NoSQLDatabase<T> 
   }
 
   async select(id: string): Promise<T> {
-    let value = this.db[id]
+    const value = this.db[id]
     if (value) {
       return value
     }
