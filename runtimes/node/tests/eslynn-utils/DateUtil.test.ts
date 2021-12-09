@@ -1,4 +1,4 @@
-import { Datee, Time } from '../../../../packages/eslynn-utils'
+import { Datee, Time } from '@es-lynn/utils'
 
 describe('DateUtil', () => {
   test('to_date', async () => {
