@@ -16,8 +16,17 @@ jobs:
           node-version: 16.x
 
       - run: echo ${GITHUB_REF##*/}
-      - run: echo ${GITHUB_REF}
-      - run: echo ${GITHUB_REF:15}
+      - run: echo "PACKAGE_DIR=${GITHUB_REF##*/}" >> $GITHUB_ENV
+      - name: Set package version
+        working-directory: ./${{ env.PACKAGE_DIR }}
+        run: |
+          PKG_VERSION=$(npx @siliconjungles/rn-scripts get_version_name)
+          BUILD_NO=$GITHUB_RUN_NUMBER
+          VERSION=$PKG_VERSION-next.$BUILD_NO
+          npm version $VERSION --no-git-tag-version
+      - name: Set package version
+        working-directory: ./${{ env.PACKAGE_DIR }}
+        run: cat package.json
 
   compile:
     runs-on: ubuntu-latest
