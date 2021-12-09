@@ -5,7 +5,7 @@
   "author": "es-lynn",
   "license": "MIT",
   "scripts": {
-    "prepublishOnly": "tsc"
+    "prepublishOnly": "tsc --incremental false"
   },
   "bugs": {
     "url": "https://github.com/es-lynn/npm/issues"
@@ -15,7 +15,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@es-lynn/utils": "^1.0.0"
+    "@es-lynn/utils": "^0.0.0"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.39",

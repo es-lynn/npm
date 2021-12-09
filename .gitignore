@@ -3,3 +3,4 @@ coverage/
 .idea
 *.log
 /runtimes/node/db/
+packages/**/dist
