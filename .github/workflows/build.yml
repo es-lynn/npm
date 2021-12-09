@@ -4,6 +4,7 @@ on:
     branches:
       - 'main'
       - 'ci/*'
+      - 'next/*'
 
 jobs:
   compile:
@@ -17,3 +18,29 @@ jobs:
       - run: yarn setup
       - run: yarn run compile
       - run: yarn run test:node:coverage
+
+  publish_next:
+    if:  contains(github.ref, 'refs/heads/next')
+    needs: [compile]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+
+      - run: echo "PACKAGE_DIR=./packages/${GITHUB_REF##*/}" >> $GITHUB_ENV
+      - run: npm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
+
+      - run: yarn setup
+
+      - name: Set package version
+        working-directory: ${{ env.PACKAGE_DIR }}
+        run: |
+          PKG_VERSION=$(npx @siliconjungles/rn-scripts get_version_name)
+          BUILD_NO=$GITHUB_RUN_NUMBER
+          VERSION=$PKG_VERSION-next.$BUILD_NO
+          npm version $VERSION --no-git-tag-version
+      - name: Publish to NPM
+        working-directory: ${{ env.PACKAGE_DIR }}
+        run: npm publish --access public --tag next
