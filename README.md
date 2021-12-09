@@ -18,3 +18,7 @@
     - Test
 - [ ] Have a publishing process
 - [ ] Setup React package & environment
+
+## Low Priority
+
+- Cache node_modules in CI
