@@ -4,13 +4,16 @@
     "test": "jest ./${PKG}",
     "test:coverage": "yarn test --collectCoverage"
   },
+  "dependencies": {
+    "@es-lynn/utils": "^0.0.0",
+    "@es-lynn/devtools": "^0.0.0"
+  },
   "devDependencies": {
     "@types/node": "^16.10.2",
     "@types/faker": "^5.5.8",
     "jest": "^27.2.4",
     "ts-jest": "^27.0.5",
     "faker": "^5.5.3",
-    "@es-lynn/utils": "^1.0.0",
     "ts-node": "^10.4.0"
   }
 }
