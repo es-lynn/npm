@@ -12,10 +12,7 @@
 
 # Publishing
 
-1. npm login
-2. cd packages/<package>
-3. update version (0.0.0-next.0)
-4. npm publish --access public --tag next
+create a branch named `next/<package-name>` and push
 
 
 # TODO
