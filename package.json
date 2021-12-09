@@ -1,0 +1,34 @@
+{
+  "name": "npm",
+  "version": "0.0.0",
+  "description": "Monorepo for npm packages developed by @es-lynn",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "setup": "yarn && lerna bootstrap",
+    "lint": "eslint . --ext .ts --ignore-pattern '/dist/*/*'",
+    "lint:fix": "eslint . --ext .ts --fix --ignore-pattern '/dist/*/*'",
+    "compile": "tsc && yarn lint",
+    "compile:fix": "tsc && yarn lint:fix",
+    "test:node": "cd runtimes/node && yarn test",
+    "test:node:coverage": "cd runtimes/node && yarn test:coverage"
+  },
+  "author": "es-lynn",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^16.10.2",
+    "@types/jest": "^27.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.32.0",
+    "@typescript-eslint/parser": "^4.32.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-unused-imports": "^1.1.5",
+    "lerna": "^4.0.0",
+    "prettier": "^2.4.1",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  }
+}
