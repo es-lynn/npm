@@ -1,7 +1,8 @@
 {
   "scripts": {
-    "test": "jest",
-    "test:coverage": "jest --collectCoverage"
+    "start": "ts-node index.ts",
+    "test": "jest ./${PKG}",
+    "test:coverage": "yarn test --collectCoverage"
   },
   "devDependencies": {
     "@types/node": "^16.10.2",
@@ -9,6 +10,7 @@
     "jest": "^27.2.4",
     "ts-jest": "^27.0.5",
     "faker": "^5.5.3",
-    "@es-lynn/utils": "^1.0.0"
+    "@es-lynn/utils": "^1.0.0",
+    "ts-node": "^10.4.0"
   }
 }

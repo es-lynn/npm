@@ -10,7 +10,9 @@
     "lint": "eslint . --ext .ts --ignore-pattern '/dist/*/*'",
     "lint:fix": "eslint . --ext .ts --fix --ignore-pattern '/dist/*/*'",
     "compile": "tsc && yarn lint",
-    "compile:fix": "tsc && yarn lint:fix"
+    "compile:fix": "tsc && yarn lint:fix",
+    "test:node": "cd runtimes/node && yarn test",
+    "test:node:coverage": "cd runtimes/node && yarn test:coverage"
   },
   "author": "es-lynn",
   "license": "MIT",
