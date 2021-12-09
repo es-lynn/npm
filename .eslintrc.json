@@ -1,0 +1,36 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "prettier",
+    "@typescript-eslint",
+    "simple-import-sort"
+  ],
+  "rules": {
+    // Handled by prettierrc.js
+    "semi": "off",
+    "comma-dangle": "off",
+    "no-extra-semi": "off",
+    "prettier/prettier": "warn",
+    // Handled by @typescript-eslint
+    "no-unused-vars": "off",
+    "no-empty": "off",
+    // @typescript-eslint
+    "@typescript-eslint/no-empty-function": "warn",
+    "@typescript-eslint/no-unused-vars":["warn", { "argsIgnorePattern": "^_" }],
+
+    // Custom
+    "simple-import-sort/imports": "warn"
+    // React
+    //    "react-native/no-inline-styles": "off",
+    //
+//    "no-constant-condition": "warn",
+//    "consistent-return": "error",
+//    "prefer-const": "off",
+//    "dot-notation": "off"
+  }
+}
