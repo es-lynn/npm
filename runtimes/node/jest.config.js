@@ -1,8 +1,8 @@
 module.exports = {
   rootDir: '../../',
-  roots: ['./tests/node'],
+  roots: ['./runtimes/node'],
   testEnvironment: 'node',
   transform: {
-    '^.+\\.tsx?$': './tests/node/node_modules/ts-jest'
+    '^.+\\.tsx?$': './runtimes/node/node_modules/ts-jest'
   }
 }
