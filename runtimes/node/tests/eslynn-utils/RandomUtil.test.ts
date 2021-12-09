@@ -1,4 +1,4 @@
-import { Rand } from '../../../../packages/eslynn-utils'
+import { Rand } from '@es-lynn/utils'
 
 describe('RandomUtil', () => {
   test('random', () => {

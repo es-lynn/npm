@@ -1,4 +1,4 @@
-import { Format, Time } from '../../../../packages/eslynn-utils'
+import { Format, Time } from '@es-lynn/utils'
 
 describe('Format', () => {
   let consoleWarn: any

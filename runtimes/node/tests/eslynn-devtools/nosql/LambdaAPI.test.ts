@@ -1,6 +1,5 @@
+import { matchCORS } from '@es-lynn/devtools'
 import Faker from 'faker'
-
-import { matchCORS } from '../../../../../packages/eslynn-devtools'
 
 describe('Match CORS', () => {
   test('*', () => {

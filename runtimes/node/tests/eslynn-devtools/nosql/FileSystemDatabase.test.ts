@@ -1,8 +1,7 @@
+import { FakerFactory } from '@es-lynn/devtools'
+import { FileSystemDatabase } from '@es-lynn/devtools'
 import { Rand } from '@es-lynn/utils'
 import Faker from 'faker'
-
-import { FakerFactory } from '../../../../../packages/eslynn-devtools'
-import { FileSystemDatabase } from '../../../../../packages/eslynn-devtools'
 
 const DataFactory = new FakerFactory((): Data => {
   return {
