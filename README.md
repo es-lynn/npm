@@ -21,7 +21,7 @@ create a branch named `next/<package-name>` and push
   ~~- Compile~~
   ~~- Lint~~
   ~~- Test~~
-- [ ] Have a publishing process
+~~- [ ] Have a publishing process~~
 - [ ] Setup React package & environment
 
 ## Low Priority
