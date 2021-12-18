@@ -8,6 +8,19 @@
 
 # Git
 
+## Branches
+
+- main/develop/trunk
+  - the trunk branch
+- feature
+  - the individual branch that people develop in
+- hotfix
+  - the branch used for deploying changes directly to the production environment/release
+- release/\<env\>
+  - the branch used for testing changes in specific environments
+- ci
+  - the branch used for testing CI changes
+
 ## Requirements
 
 - Trunk based

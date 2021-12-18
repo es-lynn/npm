@@ -2,13 +2,16 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "prettier"
+    "prettier",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": [
     "prettier",
     "@typescript-eslint",
-    "simple-import-sort"
+    "simple-import-sort",
+    "react"
   ],
   "rules": {
     // Handled by prettierrc.js
@@ -24,13 +27,21 @@
     "@typescript-eslint/no-unused-vars":["warn", { "argsIgnorePattern": "^_" }],
 
     // Custom
-    "simple-import-sort/imports": "warn"
+    "simple-import-sort/imports": "warn",
+
     // React
+    "react/display-name": "off",
+    "react/prop-types": "off"
     //    "react-native/no-inline-styles": "off",
     //
 //    "no-constant-condition": "warn",
 //    "consistent-return": "error",
 //    "prefer-const": "off",
 //    "dot-notation": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "16.14.0"
+    }
   }
 }

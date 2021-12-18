@@ -1,4 +1,5 @@
 {
+  "name": "node",
   "scripts": {
     "start": "ts-node index.ts",
     "test": "jest ./${PKG}",

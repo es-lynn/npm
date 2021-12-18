@@ -5,7 +5,10 @@
   "author": "es-lynn",
   "license": "MIT",
   "scripts": {
-    "prepublishOnly": "tsc"
+    "build:dist": "tsc",
+    "build:watch": "yarn build:dist -w",
+    "clean": "rm -rf ./dist",
+    "prepublishOnly": "yarn build:dist"
   },
   "bugs": {
     "url": "https://github.com/es-lynn/npm/issues"

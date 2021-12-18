@@ -1,0 +1,29 @@
+{
+  "name": "reactjs-commons",
+  "version": "0.0.0",
+  "description": "",
+  "author": "es-lynn",
+  "license": "MIT",
+  "scripts": {
+    "build:dist": "tsc",
+    "build:watch": "yarn build:dist -w",
+    "clean": "rm -rf ./dist",
+    "prepublishOnly": "yarn build:dist"
+  },
+  "bugs": {
+    "url": "https://github.com/es-lynn/npm/issues"
+  },
+  "homepage": "https://github.com/es-lynn/npm#readme",
+  "repository": "https://github.com/es-lynn/npm",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "peerDependencies": {
+    "react": "^16.0.0"
+  },
+  "dependencies": {
+    "@es-lynn/devtools": "^0.0.0",
+    "queue": "^6.0.2"
+  },
+  "devDependencies": {
+  }
+}

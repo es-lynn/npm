@@ -14,6 +14,21 @@
 
 create a branch named `next/<package-name>` and push
 
+# Notes
+
+# Commands
+
+## Building
+
+`yarn build:dist` - Build all packages
+
+`yarn build:dist --scope @es-lynn/utils` - Build a single package
+
+`yarn build:watch` - Build and watch all packages
+
+`yarn build:watch --scope @es-lynn/utils` - Build and watch a single package
+
+
 
 # TODO
 

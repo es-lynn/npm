@@ -1,0 +1,59 @@
+{
+  "name": "react",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --watchAll=false",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "peerDependencies": {
+    "@types/node": "^12.0.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "typescript": "^4.1.2"
+  },
+  "dependencies": {
+    "react-native-web": "^0.16.5",
+    "react-scripts": "4.0.3",
+    "react-native-svg": "^12.1.1",
+    "react-native-safe-area-context": "^3.3.2",
+    "native-base": "^3.2.2",
+    "web-vitals": "^1.0.1",
+    "reactjs-commons": "0.0.0",
+    "@es-lynn/utils": "0.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@babel/core": "^7.16.0",
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-links": "^6.4.9",
+    "@storybook/addon-react-native-web": "^0.0.14",
+    "@storybook/react": "^6.4.9",
+    "babel-loader": "8.1.0",
+    "babel-plugin-react-native-web": "^0.17.5",
+    "metro-react-native-babel-preset": "^0.66.2"
+  },
+  "resolutions": {
+    "babel-loader": "8.1.0"
+  }
+}
