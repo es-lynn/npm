@@ -31,4 +31,27 @@ export class Obj {
     // @ts-ignore
     return newObject
   }
+
+  static isEqual(objA: Record<string, any>, objB: Record<string, any>) {
+    if (!objA || !objB) {
+      return false
+    }
+    ;[objA, objB].forEach(obj => {
+      Object.values(obj).forEach(value => {
+        if (typeof value === 'function') {
+          throw Error('Unable to compare two objects that contain functions.')
+        }
+      })
+    })
+
+    return JSON.stringify(objA) === JSON.stringify(objB)
+  }
+  static mapToArray<T, U>(
+    object: Record<string, T>,
+    mapper: (key: string, value: T) => U
+  ): U[] {
+    return Object.entries(object).map(([key, value]) => {
+      return mapper(key, value)
+    })
+  }
 }
